@@ -7,7 +7,7 @@ class Solution {
 		{
 			rem = num%10;
 			num = num/10;
-            reversed = reversed * 10 + rem;
+                        reversed = reversed * 10 + rem;
 			// if(rem != 0)
 			// System.out.print(rem);
 		}
