@@ -20,3 +20,11 @@ class Solution {
         return -1; 
     }
 }
+
+===============================================================================
+    
+class Solution {
+    public int strStr(String s1, String s2) {
+        return s1.indexOf(s2); 
+    }
+}
