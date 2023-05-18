@@ -33,3 +33,35 @@ class Solution {
         return ans;
     }
 }
+
+=============================================================================================================================================================
+    
+    
+
+class Solution {
+    public int maxVowels(String s, int k){
+        int[] vowels = new int[256];
+        Arrays.fill(vowels,0);
+        vowels['a'] = 1;
+        vowels['e'] = 1;
+        vowels['i'] = 1;
+        vowels['o'] = 1;
+        vowels['u'] = 1;
+
+        int ans = 0;
+        for(int i=0;i<k;i++){
+            if(s.charAt(i) == 'a'||s.charAt(i) == 'e'||s.charAt(i) == 'i'||s.charAt(i) == 'o'||s.charAt(i) == 'u'){
+                ans++;
+            }
+        }
+
+        int cur = ans;
+        for(int i=k;i<s.length();i++){
+            cur += vowels[s.charAt(i)] - vowels[s.charAt(i - k)];
+            ans = Math.max(ans, cur);
+            if (ans == k) 
+                return ans; 
+        }
+        return ans;
+    }
+}
