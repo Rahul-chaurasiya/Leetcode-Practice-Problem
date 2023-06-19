@@ -8,6 +8,26 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        Deque<Integer>d=new ArrayDeque<>();
+        for(ListNode curr=head;curr!=null;curr=curr.next){
+            d.push(curr.val);
+        }
+
+        for(ListNode curr=head;curr!=null;curr=curr.next){
+            if(d.pop()!=curr.val) return false;
+        }
+
+        return true;
+    }
+}
+
+
+================================================================================================
+
+
 class Solution {
     public boolean isPalindrome(ListNode head) {
         ListNode fast = head;
