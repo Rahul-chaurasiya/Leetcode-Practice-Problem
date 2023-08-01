@@ -5,3 +5,12 @@ class Solution {
         return isPowerOfFour(n/4);
     }
 }
+
+============================================================
+
+class Solution {
+    public boolean isPowerOfFour(int n) {
+        double p = Math.log10(n)/ Math.log10(4);
+        return (p - (int)p == 0);
+    }
+}
