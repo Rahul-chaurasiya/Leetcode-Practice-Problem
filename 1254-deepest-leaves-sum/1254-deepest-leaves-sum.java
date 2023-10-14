@@ -14,20 +14,23 @@
  * }
  */
 class Solution {
+    int sum = 0;
+    int mh = 0;
     public int deepestLeavesSum(TreeNode root) {
-        Queue<TreeNode>q=new LinkedList<TreeNode>();
-        q.add(root);
-        int sum=0;
-        while(!q.isEmpty()){
-            sum = 0;
-            int n = q.size();
-            for(int i=0;i<n;i++){
-                TreeNode curr = q.poll();
-                sum += curr.val;
-                if(curr.left!=null) q.offer(curr.left);
-                if(curr.right!=null) q.offer(curr.right);
-            }
-        }
+        func(root,0);
         return sum;
+    }
+
+    public void func(TreeNode root,int level){
+        if(root == null) return;
+        func(root.right,level+1);
+        func(root.left,level+1);
+        if(root.left == null && root.right == null){
+            if(level > mh){
+                mh = level;
+                sum = root.val;
+            }
+            else if(level==mh) sum+=root.val;
+        }
     }
 }
