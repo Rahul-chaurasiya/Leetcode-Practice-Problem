@@ -1,0 +1,17 @@
+class Solution {
+    int count=  0;
+    int x = 0;
+    public int countTestedDevices(int[] arr) {
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]-x > 0){
+                x = increment(x);
+                count = increment(count);
+            }
+        }
+        return count;
+    }
+    
+    public int increment(int x){
+        return x+1;
+    }
+}
