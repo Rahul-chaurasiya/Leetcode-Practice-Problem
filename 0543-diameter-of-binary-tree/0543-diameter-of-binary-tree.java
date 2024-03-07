@@ -13,6 +13,29 @@
  *     }
  * }
  */
+
+
+
+class Solution {
+    int ans = -1;
+    public int diameterOfBinaryTree(TreeNode root) {
+        function(root);
+        return ans-2;
+    }
+
+    private int function(TreeNode root){
+        if(root == null) return 0;
+        int d2 = function(root.left)+1;
+        int d3 = function(root.right)+1;
+        ans = Math.max(ans,d3+d2);
+        return Math.max(d3,d2);
+    }
+}
+
+
+===================================================================================================
+
+
 class Solution {
     public int diameterOfBinaryTree(TreeNode root) {
         int d[] = new int[1];
